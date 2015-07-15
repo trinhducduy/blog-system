@@ -1,0 +1,16 @@
+= form_for @user, url: registrations_path do |f|
+  -if @user.errors.any?
+    %ul.alert.alert-danger
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+  .form-group
+    = f.text_field :name, class: 'form-control input-lg', placeholder: 'Your name'
+  .form-group
+    = f.email_field :email, class: 'form-control input-lg', placeholder: 'Your email'
+  .form-group
+    = f.password_field :password, class: 'form-control input-lg',placeholder: 'Your password'
+  .form-group 
+    = f.password_field :password_confirmation, class: 'form-control input-lg', placeholder: 'Password confirmation'
+  .form-group
+    = f.submit "Create New Account", class: 'btn btn-primary btn-lg' 
+  = render 'shared/links'

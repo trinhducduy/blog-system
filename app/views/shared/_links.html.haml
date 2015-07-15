@@ -1,0 +1,10 @@
+- if controller_name == 'sessions'
+  %p 
+    Don't have an account?
+    %span
+      = link_to "Register", new_registration_path
+- if controller_name == 'registrations'
+  %p 
+    Already have an account?
+    %span
+      = link_to "Log in", login_path

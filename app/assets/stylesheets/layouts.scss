@@ -1,3 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+$gray: #666;
+$gray-dark: #555;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: $gray;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: $gray-dark;
+}
+
 #main {
   padding-top: 60px;
 }
@@ -10,5 +25,35 @@
   width: 100%;
   small {
     float: left
+  }
+}
+
+.authentication-panel {
+  margin: 0 auto;
+  width: 90%;
+  padding: 20px 20px 30px;
+}
+
+.alert {
+  li {
+    list-style-type: none;
+  }
+}
+
+.btn-lg {
+  font-weight: bold;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .authentication-panel {
+    width: 80%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .authentication-panel {
+    width: 40%;
   }
 }
