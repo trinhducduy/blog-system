@@ -1,5 +1,24 @@
-%h1= @entry.title
+%h1
+  = @entry.title
+  %span
+    -if @entry.posted_by?(current_user)
+      = link_to "Edit", edit_entry_path(@entry), class: 'btn btn-default'
 = link_to @entry.user.name, user_path(@entry.user.id)
 %p= @entry.published_date
 %p= @entry.body
-= link_to "Edit", edit_entry_path(@entry), class: 'btn btn-default'
+
+// Comments
+%h2 
+  Comments
+  %span= "("+@entry.comments.count.to_s+")"
+%hr
+= render @entry.comments
+
+// Comment form
+-if user_signed_in?
+  = render 'form_comment'
+-else
+  %p
+    You must be 
+    = link_to "log in", login_path
+    to comment

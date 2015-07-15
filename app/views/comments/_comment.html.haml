@@ -1,0 +1,10 @@
+.row
+  .col-md-12
+    .col-md-3
+      %b= comment.user.name+": "
+      %p= timeago_tag comment.created_at, nojs: true, limit: 10.days.ago  
+    .col-md-9
+      - if comment.posted_by?(current_user)
+        = link_to entry_comment_path(comment.entry, comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'pull-right' do
+          %i.glyphicon.glyphicon-remove
+      = comment.content
