@@ -1,0 +1,5 @@
+%h1= @entry.title
+= link_to @entry.user.name, user_path(@entry.user.id)
+%p= @entry.published_date
+%p= @entry.body
+= link_to "Edit", edit_entry_path(@entry), class: 'btn btn-default'

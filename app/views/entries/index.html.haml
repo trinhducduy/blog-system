@@ -1,0 +1,6 @@
+.row
+  - @entries.each do |entry|
+    .col-md-12
+      %h2= entry.title
+      = link_to entry.user.name, user_path(entry.user.id)
+      %p= truncate(entry.body, length: 150)

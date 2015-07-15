@@ -1,0 +1,20 @@
+= form_for @entry do |f|
+  %p
+    (
+    %span.red *
+    ) fields are required
+  -if @entry.errors.any?
+    %ul.alert.alert-danger
+      - @entry.errors.full_messages.each do |msg|
+        %li= msg
+  .form-group
+    = f.label :title, class: 'required'
+    = f.text_field :title, class: 'form-control input-lg'
+  .form-group
+    = f.label :published_date, class: 'required'
+    = f.text_field :published_date, class: 'datepicker form-control input-lg'
+  .form-group
+    = f.label :body, class: 'required'
+    = f.text_area :body, class: 'form-control input-lg', rows: 10   
+  .form-group
+    = f.submit "Submit", class: 'btn btn-primary btn-lg'

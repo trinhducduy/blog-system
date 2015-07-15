@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    .col-md-3
+      %h1= @user.name
+      %p
+        %span 
+          %i.glyphicon.glyphicon-envelope
+        = @user.email
+        -if @user != current_user 
+          = render 'form_follow'
+    .col-md-9

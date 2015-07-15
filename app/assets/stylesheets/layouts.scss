@@ -40,8 +40,22 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+label.required:after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+.red {
+  color: red
+}
+
 .btn-lg {
   font-weight: bold;
+}
+
+.ui-datepicker {
+  background: #eee;
+  padding: 10px 20px 10px 10px;
 }
 
 /* Small Devices, Tablets */
