@@ -3,13 +3,21 @@ class RelationshipsController < ApplicationController
   
   def create
     user = User.find(params[:followed_id])
-    current_user.follow(user)
-    redirect_to user
+    active_relationship = current_user.follow(user)
+
+    respond_to do |format|
+      format.html { redirect_to user }
+      format.json { render json: { url: relationship_path(active_relationship.id), status: :success } }
+    end
   end
 
   def destroy
     user = Relationship.find(params[:id]).followed
     current_user.unfollow(user)
-    redirect_to user
+    
+    respond_to do |format|
+      format.html { redirect_to user }
+      format.json { render json: { id: user.id, url: relationships_path, status: :success } }
+    end
   end
 end
