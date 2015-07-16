@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:dashboard]
 
   def dashboard
-    @feed = current_user.feed.paginate(page: params[:page], per_page: 10)
+    @feed = current_user.feed.latest.paginate(page: params[:page], per_page: 10)
   end
 
   def show

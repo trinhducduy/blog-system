@@ -32,4 +32,3 @@ users = User.order(:created_at).take(6)
     end
   end
 end
-

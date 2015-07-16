@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
   validate :published_date_cannot_be_in_the_past
   has_many :comments
 
+  scope :latest, -> {order(created_at: :desc)}
+
   def posted_by? user
     self.user == user
   end
