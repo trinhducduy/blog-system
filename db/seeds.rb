@@ -27,7 +27,9 @@ users = User.order(:created_at).take(6)
   body = Faker::Lorem.paragraph(100, true)
   users.each do |user| 
     user.entries.create!(title: title, body: body)
-    author.follow(user)
+    unless author.following?(user)
+      author.follow(user)
+    end
   end
 end
 
