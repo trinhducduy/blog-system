@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_entry
+  before_action :set_entry, except: :reply
 
   def create
     @comment = Comment.new(comment_params)
@@ -13,6 +13,18 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    redirect_to @entry
+  end
+
+  def reply
+    comment = Comment.find(params[:id])
+    @entry = comment.entry
+
+    child = comment.children.build(comment_params)
+    child.user = comment.user
+    child.entry = @entry
+    child.save
+
     redirect_to @entry
   end
 

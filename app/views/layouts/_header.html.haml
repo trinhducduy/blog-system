@@ -19,7 +19,10 @@
               %i.glyphicon.glyphicon-user
             %ul.dropdown-menu
               %li
-                =link_to user_path(current_user) do
+                = link_to dashboard_users_path do
+                  Dashboard
+              %li
+                = link_to user_path(current_user) do
                   Your profile
           %li
             = link_to logout_path, method: :delete do

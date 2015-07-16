@@ -12,7 +12,9 @@
   Comments
   %span= "("+@entry.comments.count.to_s+")"
 %hr
-= render @entry.comments
+= render @comments
+= will_paginate @comments
+.clearfix
 
 // Comment form
 -if user_signed_in?

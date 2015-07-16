@@ -1,3 +1,16 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-reply {
+  margin: 10px 0;
+  padding: 5px 0;
+  background: #fafafa;
+  input[type='submit'] {
+    margin: 5px 0;
+  }
+}
+
+.children {
+  font-size: 14px;
+  margin: 10px 0;
+}

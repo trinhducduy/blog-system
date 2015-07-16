@@ -1,7 +1,6 @@
 class Entry < ActiveRecord::Base
   belongs_to :user
   validates :title, presence: true, length: {minimum: 6}
-  validates :published_date, presence: true
   validates :body, presence: true, length: {minimum: 255}
   validate :published_date_cannot_be_in_the_past
   has_many :comments

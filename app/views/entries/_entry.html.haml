@@ -1,0 +1,5 @@
+.col-md-12
+  %h2= link_to entry.title, entry_path(entry.id)
+  %p= timeago_tag entry.created_at, nojs: true, limit: 10.days.ago  
+  = link_to entry.user.name, user_path(entry.user.id)
+  %p= truncate(entry.body, length: 150)

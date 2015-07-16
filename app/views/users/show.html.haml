@@ -6,6 +6,8 @@
         %span 
           %i.glyphicon.glyphicon-envelope
         = @user.email
-        -if @user != current_user 
+        -if user_signed_in? && @user != current_user 
           = render 'form_follow'
     .col-md-9
+      %h2= "Posted by #{@user.name}" 
+      = render @entries

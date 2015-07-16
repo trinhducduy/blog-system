@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
                       dependent: :destroy
   belongs_to :parent, class_name: 'Comment'
 
+  validates :content, presence: true
+
   def posted_by? user
     self.user == user
   end

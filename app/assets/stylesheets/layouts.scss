@@ -3,10 +3,16 @@
 $gray: #666;
 $gray-dark: #555;
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: $gray;
+  min-height: 100%;
+  position: relative;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -15,6 +21,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #main {
   padding-top: 60px;
+  padding-bottom: 50px;
 }
 
 .footer {
@@ -58,6 +65,56 @@ label.required:after {
   padding: 10px 20px 10px 10px;
 }
 
+.clearfix {
+  clear: both;
+}
+
+.pagination {
+  background: white;
+  cursor: default;
+  float:right;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: #999999;
+    border: 1px solid #dddddd;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $gray;
+    color: white;
+    border: 1px solid $gray;
+  }
+  a {
+    text-decoration: none;
+    color: $gray;
+    border: 1px solid $gray;
+    &:hover, &:focus {
+      color: #000033;
+      border-color: #000033;
+    }
+  }
+    
+  .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: #000033;
+      background: #2e6ab1;
+      padding: 0.1em 0.25em; 
+    }
+  }  
+}
+
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
   .authentication-panel {
@@ -71,3 +128,5 @@ label.required:after {
     width: 40%;
   }
 }
+
+

@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = Entry.all
+    @entries = Entry.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
   end
 
   def show
+    @comments = @entry.comments.paginate(page: params[:page], per_page: 5)
   end
 
   def create
